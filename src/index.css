@@ -1,53 +1,76 @@
 @import "tailwindcss";
 
-@theme {
-  --color-primary: #839775;
-  --color-primary-hover: #6e8260;
-  --color-primary-light: #ebf0e8;
-  --color-surface-dark: #2c3527;
-  --color-surface-light: #faf8f5;
-  --color-card-bg: #ffffff;
-  --color-border-subtle: #e5e9e0;
-  --color-accent-terracotta: #c87d65;
-  --color-accent-capy: #d49b54;
-  --color-accent-capy-dark: #8a5a14;
-  --color-whatsapp: #25d366;
-  --color-danger: #dc2626;
-
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-script: "Alex Brush", cursive;
-  --font-body: "Plus Jakarta Sans", sans-serif;
-}
-
 @layer base {
+  :root {
+    --color-primary: #839775;
+    --color-primary-hover: #6e8260;
+    --color-primary-light: #ebf0e8;
+    --color-leaf-accent: #5e7250;
+    --color-surface-dark: #2c3527;
+    --color-surface-light: #faf8f5;
+    --color-card-bg: #ffffff;
+    --color-border-subtle: #e5e9e0;
+    --color-dotted-line: #c2cbc0;
+    --color-accent-capy: #d49b54;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #faf8f5;
+    color: #2c3527;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+
   body {
-    font-family: var(--font-body);
-  }
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: var(--font-display);
+    overflow-x: hidden;
   }
 }
 
-@keyframes pulse-ring {
-  0% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
+@keyframes floatLeaf {
+  0%,
   100% {
-    transform: scale(1.5);
-    opacity: 0;
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(4deg);
   }
 }
 
-.animate-pulse-ring {
-  animation: pulse-ring 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-6deg);
+  }
+}
+
+@keyframes dashOffset {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-float-leaf {
+  animation: floatLeaf 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.animate-dashed-path {
+  animation: dashOffset 20s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-pulse-ring {
-    animation: none;
+  .animate-float-leaf,
+  .animate-float-slow,
+  .animate-dashed-path {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto !important;
   }
 }

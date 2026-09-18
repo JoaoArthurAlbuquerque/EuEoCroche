@@ -1,60 +1,41 @@
-import React, { useState, useEffect } from "react";
-import { ShoppingBag, Sparkles } from "lucide-react";
-import { InstagramIcon } from "../../../icons/InstagramIcon";
-import { useCartStore } from "../../../../store/useCartStore";
+import React from "react";
+import { Leaf, Menu } from "lucide-react";
 
-export const HeaderNav: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const { items, openCart } = useCartStore();
-  const totalCount = items.reduce((acc, item) => acc + item.quantity, 0);
+interface HeaderNavProps {
+  onOpenNav: () => void;
+  isNavOpen: boolean;
+}
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+export const HeaderNav: React.FC<HeaderNavProps> = ({
+  onOpenNav,
+  isNavOpen,
+}) => {
   return (
-    <header
-      className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-        isScrolled ? "bg-white/90 backdrop-blur-md shadow-xs" : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <a href="#inicio" className="flex items-center gap-2 group">
-          <Sparkles className="w-6 h-6 text-amber-600 transition-transform group-hover:rotate-12" />
-          <span className="font-bold text-xl tracking-tight text-zinc-900">
+    <header className="sticky top-0 z-40 w-full h-16 bg-[#FAF8F5]/85 backdrop-blur-md border-b border-[#E5E9E0] transition-colors duration-200">
+      <div className="max-w-7xl mx-auto h-full px-4 md:px-8 flex items-center justify-between">
+        {/* Logo */}
+        <a
+          href="#"
+          className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#839775] rounded-lg"
+        >
+          <div className="w-9 h-9 rounded-full bg-[#EBF0E8] flex items-center justify-center text-[#839775] group-hover:scale-105 transition-transform">
+            <Leaf className="w-5 h-5" />
+          </div>
+          <span className="font-serif font-bold text-xl text-[#2C3527] tracking-tight">
             Eu e o Crochê
           </span>
         </a>
 
-        <div className="flex items-center gap-3">
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Siga no Instagram"
-            className="p-2 text-zinc-600 hover:text-amber-700 transition-colors focus-visible:ring-2 focus-visible:ring-amber-600 rounded-full outline-none"
-          >
-            <InstagramIcon className="w-5 h-5" />
-          </a>
-
-          <button
-            type="button"
-            onClick={openCart}
-            aria-label={`Abrir carrinho com ${totalCount} itens`}
-            className="relative p-2 text-zinc-700 hover:text-amber-700 transition-colors focus-visible:ring-2 focus-visible:ring-amber-600 rounded-full outline-none"
-          >
-            <ShoppingBag className="w-6 h-6" />
-            {totalCount > 0 && (
-              <span className="absolute top-1 right-1 bg-amber-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
-                {totalCount}
-              </span>
-            )}
-          </button>
-        </div>
+        {/* Botão Único do Menu Hambúrguer */}
+        <button
+          type="button"
+          onClick={onOpenNav}
+          aria-expanded={isNavOpen}
+          aria-label="Abrir menu de navegação"
+          className="min-w-[44px] min-h-[44px] w-10 h-10 rounded-full bg-[#839775] text-white hover:bg-[#6E8260] active:scale-95 transition-all flex items-center justify-center shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#839775] focus-visible:ring-offset-2"
+        >
+          <Menu className="w-5 h-5" />
+        </button>
       </div>
     </header>
   );
