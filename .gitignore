@@ -1,0 +1,14 @@
+# Dependências e compilações
+node_modules/
+dist/
+build/
+
+# Variáveis de ambiente e credenciais
+.env
+.env.local
+*.pem
+
+# Arquivos do sistema e editor
+.DS_Store
+.vscode/
+*.log
