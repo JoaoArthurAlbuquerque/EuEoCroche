@@ -18,7 +18,7 @@ export const CapybaraSection: React.FC = () => {
             </span>
 
             <h2 className="text-3xl sm:text-4xl font-bold font-serif text-white tracking-tight">
-              ✨ Caixinha Secreta de Capivaras
+              Caixinha Secreta de Capivaras
             </h2>
 
             <p className="text-sm sm:text-base text-[#EBF0E8] leading-relaxed">

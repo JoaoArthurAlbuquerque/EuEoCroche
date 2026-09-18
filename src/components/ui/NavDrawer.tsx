@@ -94,10 +94,8 @@ export const NavDrawer: React.FC<NavDrawerProps> = ({
                 className="flex items-center justify-between p-3.5 rounded-xl bg-white border border-[#E5E9E0] text-[#2C3527] hover:bg-[#EBF0E8] active:scale-98 transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#839775] min-h-[44px]"
               >
                 <div className="flex items-center gap-3">
-                  <MessageCircle className="w-5 h-5 text-[#25D366] shrink-0" />
-                  <span className="text-sm font-semibold">
-                    Atendimento WhatsApp
-                  </span>
+                  <MessageCircle className="w-5 h-5 text-[#839775] shrink-0" />
+                  <span className="text-sm font-semibold">WhatsApp</span>
                 </div>
                 <ChevronRight className="w-4 h-4 text-[#839775] group-hover:translate-x-0.5 transition-transform" />
               </a>
@@ -109,10 +107,8 @@ export const NavDrawer: React.FC<NavDrawerProps> = ({
                 className="flex items-center justify-between p-3.5 rounded-xl bg-white border border-[#E5E9E0] text-[#2C3527] hover:bg-[#EBF0E8] active:scale-98 transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#839775] min-h-[44px]"
               >
                 <div className="flex items-center gap-3">
-                  <Instagram className="w-5 h-5 text-[#2C3527] shrink-0" />
-                  <span className="text-sm font-semibold">
-                    Instagram (@eu_eocroche)
-                  </span>
+                  <Instagram className="w-5 h-5 text-[#839775] shrink-0" />
+                  <span className="text-sm font-semibold">Instagram</span>
                 </div>
                 <ChevronRight className="w-4 h-4 text-[#839775] group-hover:translate-x-0.5 transition-transform" />
               </a>

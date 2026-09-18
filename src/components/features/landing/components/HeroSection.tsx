@@ -48,7 +48,7 @@ export const HeroSection: React.FC = () => {
               onClick={() => scrollToSection("capivaras")}
               className="w-full sm:w-auto min-h-[44px] px-6 py-3 rounded-full bg-[#EBF0E8] text-[#2C3527] font-semibold text-sm hover:bg-[#839775] hover:text-white active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 border border-[#E5E9E0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#839775] focus-visible:ring-offset-2"
             >
-              <span>✨ Caixinha de Capivaras</span>
+              <span>Caixinha de Capivaras</span>
             </button>
           </div>
         </div>
